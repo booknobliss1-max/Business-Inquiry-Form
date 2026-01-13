@@ -450,6 +450,7 @@
     </section>
   </main>
   <script>
+ <script>
   document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector("form");
 
@@ -459,42 +460,29 @@
       const formData = new FormData(form);
       const data = Object.fromEntries(formData.entries());
 
-      const webhookURL = "      await fetch(https://discord.com/api/webhooks/1460470276100718836/TkPcYL7JdVkx_XZ-XpNrOXOZoVjRJmFDqYlYi8DZMVOvlkF699GOAW1VOc349Ov2adLf, {
-";
+      const webhookURL = "https://discord.com/api/webhooks/NEW_WEBHOOK_URL";
 
       const message = {
-        content: `📩 **New Licensing Inquiry — Big Dress Energy™**
+        content: `📩 **New Licensing Inquiry**
 
 **Name:** ${data.name || "N/A"}
-**Organization:** ${data.organization || "N/A"}
 **Email:** ${data.email || "N/A"}
-**Licensing Type:** ${data["licensing_type[]"] || "N/A"}
-**Assets Requested:** ${data.assets || "N/A"}
-**Timeline:** ${data.timeline || "N/A"}
-**Budget:** ${data.budget || "N/A"}
 
 **Project Description:**  
-${data.project_description || "N/A"}
-        `
+${data.project_description || "N/A"}`
       };
 
+      await fetch(webhookURL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-      <form>
-  <input type="text" name="name" placeholder="Your Name">
-  <input type="email" name="email" placeholder="Your Email">
-  <textarea name="project_description"></textarea>
-  <button type="submit">Submit</button>
-</form>
- 
-      body: JSON.stringify(message)
+        body: JSON.stringify(message)
       });
 
-      alert("Thank you! Your licensing inquiry has been submitted.");
+      alert("Thank you! Your inquiry has been submitted.");
       form.reset();
     });
   });
 </script>
-
+ 
 </body>
 </html>
