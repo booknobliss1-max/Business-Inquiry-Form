@@ -449,5 +449,52 @@
       </form>
     </section>
   </main>
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector("form");
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      const webhookURL = "YOUR_DISCORD_WEBHOOK_URL_HERE";
+
+      const message = {
+        content: `📩 **New Licensing Inquiry — Big Dress Energy™**
+
+**Name:** ${data.name || "N/A"}
+**Organization:** ${data.organization || "N/A"}
+**Email:** ${data.email || "N/A"}
+**Licensing Type:** ${data["licensing_type[]"] || "N/A"}
+**Assets Requested:** ${data.assets || "N/A"}
+**Timeline:** ${data.timeline || "N/A"}
+**Budget:** ${data.budget || "N/A"}
+
+**Project Description:**  
+${data.project_description || "N/A"}
+        `
+      };
+
+      await fetch(https://discord.com/api/webhooks/1460470276100718836/TkPcYL7JdVkx_XZ-XpNrOXOZoVjRJmFDqYlYi8DZMVOvlkF699GOAW1VOc349Ov2adLf, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+      <form>
+  <input type="text" name="name" placeholder="Your Name">
+  <input type="email" name="email" placeholder="Your Email">
+  <textarea name="project_description"></textarea>
+  <button type="submit">Submit</button>
+</form>
+ 
+      body: JSON.stringify(message)
+      });
+
+      alert("Thank you! Your licensing inquiry has been submitted.");
+      form.reset();
+    });
+  });
+</script>
+
 </body>
 </html>
